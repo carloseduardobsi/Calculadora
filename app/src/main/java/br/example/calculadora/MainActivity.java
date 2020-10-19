@@ -37,25 +37,27 @@ public class MainActivity extends AppCompatActivity {
 
     public void igual(View view) {
         TextView resultado = ((TextView) findViewById(R.id.editTextNumberDecimal));
-        valor2 = Float.valueOf(resultado.getText().toString() + "f");
-        if (operacao.equals("+")) {
-            resultado.setText(Float.toString(valor1 + valor2));
-        }
-        if (operacao.equals("-")) {
-            resultado.setText(Float.toString(valor1 - valor2));
-        }
-        if (operacao.equals("/")) {
-            if (valor2 == 0) {
-                resultado.setText("Não existe");
-            } else {
-                resultado.setText(Float.toString(valor1 / valor2));
+
+        if (!resultado.getText().toString().equals(null) && !resultado.getText().toString().equals("")  && !resultado.getText().toString().equals(".")) {
+            valor2 = Float.valueOf(resultado.getText().toString() + "f");
+            if (operacao.equals("+")) {
+                resultado.setText(Float.toString(valor1 + valor2));
             }
+            if (operacao.equals("-")) {
+                resultado.setText(Float.toString(valor1 - valor2));
+            }
+            if (operacao.equals("/")) {
+                if (valor2 == 0) {
+                    resultado.setText("Não existe");
+                } else {
+                    resultado.setText(Float.toString(valor1 / valor2));
+                }
 
+            }
+            if (operacao.equals("*")) {
+                resultado.setText(Float.toString(valor1 * valor2));
+            }
         }
-        if (operacao.equals("*")) {
-            resultado.setText(Float.toString(valor1 * valor2));
-        }
-
 
     }
 
